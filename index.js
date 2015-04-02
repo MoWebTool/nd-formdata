@@ -45,10 +45,6 @@ _FormData.prototype._field = function(fields) {
       return;
     }
 
-    if (field.getAttribute('data-skip') === 'true') {
-      return;
-    }
-
     if (field.type === 'radio' || field.type === 'checkbox') {
       if (!field.checked) {
         return;
@@ -76,7 +72,7 @@ _FormData.prototype.append = function(name, value) {
     value = trim(value);
 
     var firstChar = value.charAt(0);
-    var lastChar = value.substr(-1, 1);
+    var lastChar = value.slice(-1);
 
     if ((firstChar === '[' && lastChar === ']') ||
         (firstChar === '{' && lastChar === '}')) {
