@@ -5,16 +5,6 @@
 
 'use strict';
 
-/**
- * FormData
- *
- * @class FormData
- * @constructor
- */
-var _FormData = function(fields) {
-  return this.initialize(fields);
-};
-
 function trim(value) {
   return value.replace(/^\s+|\s+$/g, '');
 }
@@ -29,6 +19,16 @@ function each(data, callback) {
   }
 }
 
+/**
+ * FormData
+ *
+ * @class FormData
+ * @constructor
+ */
+var _FormData = function(fields) {
+  return this.initialize(fields);
+};
+
 _FormData.prototype._each = function(callback) {
   each(this.dataArray, callback);
 };
@@ -42,6 +42,10 @@ _FormData.prototype._field = function(fields) {
     }
 
     if (field.disabled) {
+      return;
+    }
+
+    if (field.getAttribute('data-skip') === 'true') {
       return;
     }
 
