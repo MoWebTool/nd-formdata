@@ -69,7 +69,7 @@ _FormData.prototype.append = function(name, value) {
   var found;
 
   if (typeof value === 'string') {
-    value = trim(value);
+    //value = trim(value);
 
     var firstChar = value.charAt(0);
     var lastChar = value.slice(-1);
