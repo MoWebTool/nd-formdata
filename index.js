@@ -1,6 +1,6 @@
 /**
- * @module: nd-formdata
- * @author: crossjs <liwenfu@crossjs.com> - 2015-01-30 14:58:36
+ * @module FormData
+ * @author crossjs <liwenfu@crossjs.com>
  */
 
 'use strict';
