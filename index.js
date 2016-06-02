@@ -51,7 +51,22 @@ _FormData.prototype._field = function(fields) {
       }
     }
 
-    that.append(field.name, field.value);
+    if (field.tagName.toLowerCase() === 'select' &&
+        field.multiple &&
+        field.selectedIndex !== -1) {
+      var i;
+      var options = field.options;
+      var n = field.options.length;
+
+      for (i = 0; i < n; i++) {
+        if (options[i].selected) {
+          that.append(field.name, options[i].value);
+        }
+      }
+    } else {
+      that.append(field.name, field.value);
+    }
+
   });
 };
 
